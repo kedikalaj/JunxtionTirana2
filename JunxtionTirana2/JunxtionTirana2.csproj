@@ -21,4 +21,8 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JunxtionTirana2.Services\JunxtionTirana2.Services.csproj" />
+  </ItemGroup>
+
 </Project>
