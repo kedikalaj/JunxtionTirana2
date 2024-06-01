@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace JunxtionTirana2.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("[Controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace JunxtionTirana2.Controllers
             _authenticationService = authenticationService;
         }
 
-        [HttpPost]
+        [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserViewModel model, string role)
         {
             var userExists = await _userManager.FindByEmailAsync(model.Email);
@@ -58,7 +58,7 @@ namespace JunxtionTirana2.Controllers
                 return BadRequest("The role doesnt exists.");
             }
         }
-        [HttpPost]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
             var user = await _userManager.FindByNameAsync(model.Username);
@@ -80,7 +80,7 @@ namespace JunxtionTirana2.Controllers
             }
             return Unauthorized();
         }
-        [HttpPost]
+        [HttpPost("TestMail")]
         public IActionResult TestEmail()
         {
             try
