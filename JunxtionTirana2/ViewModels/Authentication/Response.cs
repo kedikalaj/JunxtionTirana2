@@ -1,4 +1,4 @@
-﻿namespace JunxtionTirana2.Model.Authentication
+﻿namespace JunxtionTirana2.ViewModels.Authentication
 {
     public class Response
     {

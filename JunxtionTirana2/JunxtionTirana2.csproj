@@ -18,10 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JunxtionTirana2.Data\JunxtionTirana2.Data.csproj" />
     <ProjectReference Include="..\JunxtionTirana2.Services\JunxtionTirana2.Services.csproj" />
   </ItemGroup>
 

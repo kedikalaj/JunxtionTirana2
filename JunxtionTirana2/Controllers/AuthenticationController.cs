@@ -1,6 +1,6 @@
 ﻿using JunxtionTirana2.JunxtionTirana2.Models;
-using JunxtionTirana2.Model.Authentication;
 using JunxtionTirana2.Services.Interfaces;
+using JunxtionTirana2.ViewModels.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
