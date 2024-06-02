@@ -12,4 +12,8 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JunxtionTirana2.Data\JunxtionTirana2.Data.csproj" />
+  </ItemGroup>
+
 </Project>

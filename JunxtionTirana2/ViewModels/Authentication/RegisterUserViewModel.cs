@@ -20,6 +20,11 @@ namespace JunxtionTirana2.ViewModels.Authentication
         /// </summary>
         [Required(ErrorMessage = "The password is required")]
         public string Password { get; set; }
+        /// <summary>
+        /// Gets or sets the phone number of the user
+        /// </summary>
+        [Required(ErrorMessage = "The phone number is required")]
+        public string Phone { get; set; }
 
     }
 }
