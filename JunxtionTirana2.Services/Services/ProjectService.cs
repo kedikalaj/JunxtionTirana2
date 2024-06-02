@@ -25,7 +25,6 @@ namespace JunxtionTirana2.Services.Services
         {
             return await _context.Projects
                 .Include(p => p.Members)
-                .Include(p => p.Preferences)
                 .ToListAsync();
         }
 
@@ -33,7 +32,6 @@ namespace JunxtionTirana2.Services.Services
         {
             return await _context.Projects
                 .Include(p => p.Members)
-                .Include(p => p.Preferences)
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 

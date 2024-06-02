@@ -14,7 +14,7 @@ public class ProjectsController : ControllerBase
         _projectService = projectService;
     }
 
-    [HttpGet]
+    [HttpGet("GetAll")]
     public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
     {
         var projects = await _projectService.GetProjectsAsync();
@@ -23,7 +23,7 @@ public class ProjectsController : ControllerBase
 
 
     [HttpGet("GetProject/{id}")]
-    public async Task<ActionResult<Project>> GetProject(Guid id)
+    public async Task<ActionResult<Project>> GetProject([FromQuery] Guid id)
     {
         var project = await _projectService.GetProjectByIdAsync(id);
         if (project == null)
@@ -50,7 +50,7 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpGet("GetPreferedProject{userId}")]
-    public async Task<ActionResult<IEnumerable<Project>>> GetUserPreferredProjects(GetUserProjectInterestViewModel model)
+    public async Task<ActionResult<IEnumerable<Project>>> GetUserPreferredProjects([FromQuery] GetUserProjectInterestViewModel model)
     {
         var preferredProjects = await _projectService.GetUserPreferredProjectsAsync(model);
         return Ok(preferredProjects);

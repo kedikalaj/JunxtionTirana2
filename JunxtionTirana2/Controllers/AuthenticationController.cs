@@ -1,4 +1,5 @@
 ﻿using JunxtionTirana2.JunxtionTirana2.Models;
+using JunxtionTirana2.Model.ApplicationUsers;
 using JunxtionTirana2.Services.Interfaces;
 using JunxtionTirana2.Services.Models.LoginViewModel;
 using JunxtionTirana2.ViewModels.Authentication;
@@ -14,18 +15,16 @@ namespace JunxtionTirana2.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<User> _roleManager;
         private readonly IConfiguration _configuration;
-        private readonly IEmailService _emailService;
         private readonly IAuthenticationService _authenticationService;
 
-        public AuthenticationController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, IEmailService emailService, IAuthenticationService authenticationService)
+        public AuthenticationController(UserManager<User> userManager, RoleManager<User> roleManager, IConfiguration configuration, IAuthenticationService authenticationService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
-            _emailService = emailService;
             _authenticationService = authenticationService;
         }
 
@@ -115,20 +114,6 @@ namespace JunxtionTirana2.Controllers
             // For simplicity, we'll just return the user object
             return Ok(user);
         }
-        [HttpPost("TestMail")]
-        public IActionResult TestEmail()
-        {
-            try
-            {
-                string content = "<p>The content</p>";
-                var msg = new Message(new string[] { "testemai@email.test" }, "Email test", content);
-                _emailService.SendEmail(msg);
-                return Ok("Message sent successfully");
-            }
-            catch
-            {
-                return BadRequest("Something went wrong!");
-            }
-        }
+
     }
 }

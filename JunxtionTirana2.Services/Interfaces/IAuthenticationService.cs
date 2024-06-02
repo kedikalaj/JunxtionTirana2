@@ -13,11 +13,7 @@ namespace JunxtionTirana2.Services.Interfaces
 {
     public interface IAuthenticationService
     {
-        /// <summary>
-        /// Generates the authentication tokens
-        /// </summary>
-        /// <param name="authClaims"></param>
-        /// <returns></returns>
+
         JwtSecurityToken GetToken(List<Claim> authClaims);
         Task<IdentityResult> RegisterUserAsync(RegisterUserViewModel model);
         Task<User> AuthenticateUserAsync(LoginUserViewModel model);
